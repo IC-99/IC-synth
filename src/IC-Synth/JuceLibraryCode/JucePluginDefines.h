@@ -50,7 +50,7 @@
  #define JucePlugin_Manufacturer           "IC"
 #endif
 #ifndef  JucePlugin_ManufacturerWebsite
- #define JucePlugin_ManufacturerWebsite    "www.IC.com"
+ #define JucePlugin_ManufacturerWebsite    "https://ivancarlini.bitbucket.io/"
 #endif
 #ifndef  JucePlugin_ManufacturerEmail
  #define JucePlugin_ManufacturerEmail      ""
@@ -101,19 +101,19 @@
  #define JucePlugin_AUSubType              JucePlugin_PluginCode
 #endif
 #ifndef  JucePlugin_AUExportPrefix
- #define JucePlugin_AUExportPrefix         NewProjectAU
+ #define JucePlugin_AUExportPrefix         ICsynthAU
 #endif
 #ifndef  JucePlugin_AUExportPrefixQuoted
- #define JucePlugin_AUExportPrefixQuoted   "NewProjectAU"
+ #define JucePlugin_AUExportPrefixQuoted   "ICsynthAU"
 #endif
 #ifndef  JucePlugin_AUManufacturerCode
  #define JucePlugin_AUManufacturerCode     JucePlugin_ManufacturerCode
 #endif
 #ifndef  JucePlugin_CFBundleIdentifier
- #define JucePlugin_CFBundleIdentifier     com.IC.NewProject
+ #define JucePlugin_CFBundleIdentifier     com.IC.ICsynth
 #endif
 #ifndef  JucePlugin_AAXIdentifier
- #define JucePlugin_AAXIdentifier          com.IC.NewProject
+ #define JucePlugin_AAXIdentifier          com.IC.ICsynth
 #endif
 #ifndef  JucePlugin_AAXManufacturerCode
  #define JucePlugin_AAXManufacturerCode    JucePlugin_ManufacturerCode
@@ -152,10 +152,10 @@
  #define JucePlugin_ARATransformationFlags  0
 #endif
 #ifndef  JucePlugin_ARAFactoryID
- #define JucePlugin_ARAFactoryID           "com.IC.NewProject.factory"
+ #define JucePlugin_ARAFactoryID           "com.IC.ICsynth.factory"
 #endif
 #ifndef  JucePlugin_ARADocumentArchiveID
- #define JucePlugin_ARADocumentArchiveID   "com.IC.NewProject.aradocumentarchive.1.0.0"
+ #define JucePlugin_ARADocumentArchiveID   "com.IC.ICsynth.aradocumentarchive.1.0.0"
 #endif
 #ifndef  JucePlugin_ARACompatibleArchiveIDs
  #define JucePlugin_ARACompatibleArchiveIDs  ""
