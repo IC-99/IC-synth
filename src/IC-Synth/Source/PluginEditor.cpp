@@ -24,7 +24,15 @@ NewProjectAudioProcessorEditor::NewProjectAudioProcessorEditor (NewProjectAudioP
     attackSlider.addListener(this);
     addAndMakeVisible(&attackSlider);
 
-    sliderTree = new juce::AudioProcessorValueTreeState::SliderAttachment(audioProcessor.tree, "attack", attackSlider);
+    releaseSlider.setSliderStyle(juce::Slider::SliderStyle::LinearVertical);
+    releaseSlider.setRange(0.0f, 2000.0f, 10.0f);
+    releaseSlider.setValue(200.0f);
+    releaseSlider.setTextBoxStyle(juce::Slider::TextBoxBelow, true, 50.0, 50.0);
+    releaseSlider.addListener(this);
+    addAndMakeVisible(&releaseSlider);
+
+    attackTree = new juce::AudioProcessorValueTreeState::SliderAttachment(audioProcessor.tree, "attack", attackSlider);
+    releaseTree = new juce::AudioProcessorValueTreeState::SliderAttachment(audioProcessor.tree, "release", releaseSlider);
 }
 
 NewProjectAudioProcessorEditor::~NewProjectAudioProcessorEditor()
@@ -47,11 +55,15 @@ void NewProjectAudioProcessorEditor::resized()
     // This is generally where you'll want to lay out the positions of any
     // subcomponents in your editor..
     attackSlider.setBounds(10, 10, 60, 250);
+    releaseSlider.setBounds(70, 10, 130, 250);
 }
 
 void NewProjectAudioProcessorEditor::sliderValueChanged(juce::Slider* slider)
 {
     if (slider == &attackSlider) {
         audioProcessor.attackTime = attackSlider.getValue();
+    }
+    if (slider == &releaseSlider) {
+        audioProcessor.releaseTime = releaseSlider.getValue();
     }
 }
