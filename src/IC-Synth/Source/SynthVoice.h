@@ -21,6 +21,11 @@ public:
         return dynamic_cast<SynthSound*>(sound) != nullptr;
     }
 
+    void getParam(std::atomic<float>* attack)
+    {
+        env1.setAttack(double(*attack));
+    }
+
     void startNote (int midiNoteNumber, float velocity, juce::SynthesiserSound* sound, int currentPitchWheelPosition)
     {
         env1.trigger = 1;
@@ -38,7 +43,6 @@ public:
 
     void renderNextBlock(juce::AudioBuffer<float>& outputBuffer, int startSample, int numSamples)
     {
-        env1.setAttack(300);
         env1.setDecay(500);
         env1.setSustain(0.5);
         env1.setRelease(200);

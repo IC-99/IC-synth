@@ -21,12 +21,11 @@ NewProjectAudioProcessor::NewProjectAudioProcessor()
                      #endif
                        ),
     attackTime(200.0f),
-    tree(*this, nullptr)
+    tree(*this, nullptr, "IC-synth", juce::AudioProcessorValueTreeState::ParameterLayout{std::make_unique<juce::AudioParameterFloat>("attack", "Attack", 0.0f, 2000.0f, 200.0f),})
 #endif
 {
-    juce::NormalisableRange<float> attackParam (0.0f, 5000.0f);
-    //tree.createAndAddParameter("attack", "Attack", "Attack", attackParam, 200.0f, nullptr, nullptr); tutorial 4 (30:00)
-    
+    juce::NormalisableRange<float> attackParam (0.0f, 2000.0f);
+    tree.createAndAddParameter("attack", "Attack", "Attack", attackParam, 200.0f, nullptr, nullptr);
     mySynth.clearVoices();
     for (int i = 0; i < 5; i++)
     {
@@ -174,6 +173,14 @@ void NewProjectAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, j
         // ..do something to the data...
     }
     */
+
+    for (int i = 0; i < mySynth.getNumVoices(); i++)
+    {
+        if (myVoice = dynamic_cast<SynthVoice*> (mySynth.getVoice(i)))
+        {
+            myVoice->getParam(tree.getRawParameterValue("attack"));
+        }
+    }
 
     buffer.clear();
     mySynth.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples());

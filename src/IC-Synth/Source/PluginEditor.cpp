@@ -18,7 +18,7 @@ NewProjectAudioProcessorEditor::NewProjectAudioProcessorEditor (NewProjectAudioP
     setSize (400, 300);
 
     attackSlider.setSliderStyle(juce::Slider::SliderStyle::LinearVertical);
-    attackSlider.setRange(0.0f, 5000.0f, 10.0f);
+    attackSlider.setRange(0.0f, 2000.0f, 10.0f);
     attackSlider.setValue(200.0f);
     attackSlider.setTextBoxStyle(juce::Slider::TextBoxBelow, true, 50.0, 50.0);
     attackSlider.addListener(this);
@@ -46,7 +46,7 @@ void NewProjectAudioProcessorEditor::resized()
 {
     // This is generally where you'll want to lay out the positions of any
     // subcomponents in your editor..
-    attackSlider.setBounds(10, 10, 40, 250);
+    attackSlider.setBounds(10, 10, 60, 250);
 }
 
 void NewProjectAudioProcessorEditor::sliderValueChanged(juce::Slider* slider)
